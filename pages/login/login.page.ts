@@ -1,4 +1,4 @@
-const {I} = inject()
+const { I } = inject()
 
 import loginElements from "./login.elements"
 
@@ -10,7 +10,7 @@ export class loginPage {
     }
 
     doLogin(data) {
-        const email = data. email || 'teste@teste.com'
+        const email = data.email || 'teste@teste.com'
         const password = data.password || '123456'
 
         I.waitForElement(loginElements.filed_email, 5)

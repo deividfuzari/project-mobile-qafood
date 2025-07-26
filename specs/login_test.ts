@@ -2,17 +2,17 @@
 import loginPage from "../pages/login/login.page";
 import homePage from "../pages/home/home.page";
 
-const {I} = inject()
+const { I } = inject()
 
 Feature('Test QAfood');
 
-Scenario('test validate login',  () => {
+Scenario('test validate login', () => {
     loginPage.doLogin({})
     homePage.validateLogin()
 });
 
 Scenario('test login fail', () => {
-    loginPage.doLogin({password: '12345'})
+    loginPage.doLogin({ password: '12345' })
     loginPage.validateLoginError()
 })
 

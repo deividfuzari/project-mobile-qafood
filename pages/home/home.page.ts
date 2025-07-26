@@ -1,4 +1,4 @@
-const {I} = inject()
+const { I } = inject()
 
 import homeElements from "./home.elements";
 
@@ -17,7 +17,7 @@ export class homePage {
     }
 
     selectRestaurant(nameRestaurant) {
-        I.performSwipe({x: 600, y: 1500}, {x: 600, y: 400})
+        I.performSwipe({ x: 600, y: 1500 }, { x: 600, y: 400 })
         I.waitForElement(homeElements.restaurant_select(nameRestaurant))
         I.click(homeElements.restaurant_select(nameRestaurant))
     }
