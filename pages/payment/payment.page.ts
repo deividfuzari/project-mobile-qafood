@@ -1,6 +1,6 @@
 import paymentElements from "./payment.elements"
 
-const {I} = inject()
+const { I } = inject()
 import { expect } from 'chai';
 
 export class paymentPage {
@@ -18,7 +18,7 @@ export class paymentPage {
 
     choiceMoneyPay() {
         I.performSwipe({ x: 700, y: 1700 }, { x: 700, y: 800 })
-        
+
         I.waitForElement(paymentElements.radio_money, 10)
         I.see(this.massText.textMoney, paymentElements.radio_money)
         I.click(paymentElements.radio_money)
@@ -30,7 +30,7 @@ export class paymentPage {
 
     async validateSuccsessOrder() {
         I.waitForElement(paymentElements.text_succsess, 10)
-        
+
         const textSuccsess = await I.grabTextFrom(paymentElements.text_succsess)
 
         I.waitForElement(paymentElements.text_status, 10)
