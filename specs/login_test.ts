@@ -7,6 +7,11 @@ import cartPage from "../pages/cart/cart.page";
 import paymentPage from "../pages/payment/payment.page";
 
 const { I } = inject()
+const restaurant = 'Churrascaria Gaúcha'
+const burgerJoint = 'Bulldog Hamburgueria'
+const nameBurger = 'Hamburguer de frango'
+const valueBurger = '22,00'
+const valueDrink = '5,00'
 
 Feature('Test QAfood');
 
@@ -23,20 +28,20 @@ Scenario('test login fail', () => {
 Scenario('test input Address and select Restaurant', () => {
     loginPage.doLogin({})
     homePage.inputAddress()
-    homePage.selectRestaurant('Churrascaria Gaúcha')
+    homePage.selectRestaurant(restaurant)
     menuPage.validateGoMenu(1)
 }).tag('@address_restaurant')
 
 Scenario('test validate name Item and Add to cart', () => {
     loginPage.doLogin({})
     homePage.inputAddress()
-    homePage.selectRestaurant('Bulldog Hamburgueria')
+    homePage.selectRestaurant(burgerJoint)
     menuPage.validateGoMenu(1)
-    menuPage.validatePriceItem(1, { valueItem: '22,00', valueDrink: '5,00' })
-    menuPage.validateSelectItem(1, 'Hamburguer de frango')
+    menuPage.validatePriceItem(1, { valueItem: valueBurger, valueDrink: valueDrink })
+    menuPage.validateSelectItem(1, nameBurger)
     menuPage.clickGotoCart()
-    cartPage.validateNameItemCart('Hamburguer de frango', 1)
-    cartPage.validatePriceItemCart('22,00', 1)
+    cartPage.validateNameItemCart(nameBurger, 1)
+    cartPage.validatePriceItemCart(valueBurger, 1)
     cartPage.confirmOrder()
     paymentPage.validatePagePayment()
 }).tag('@add_item_to_cart')
@@ -44,13 +49,13 @@ Scenario('test validate name Item and Add to cart', () => {
 Scenario('finish purchase item on QAfood', async () => {
     loginPage.doLogin({})
     homePage.inputAddress()
-    homePage.selectRestaurant('Bulldog Hamburgueria')
+    homePage.selectRestaurant(burgerJoint)
     menuPage.validateGoMenu(1)
-    menuPage.validatePriceItem(1, { valueItem: '22,00', valueDrink: '5,00' })
-    menuPage.validateSelectItem(1, 'Hamburguer de frango')
+    menuPage.validatePriceItem(1, { valueItem: valueBurger, valueDrink: valueDrink })
+    menuPage.validateSelectItem(1, nameBurger)
     menuPage.clickGotoCart()
-    cartPage.validateNameItemCart('Hamburguer de frango', 1)
-    cartPage.validatePriceItemCart('22,00', 1)
+    cartPage.validateNameItemCart(nameBurger, 1)
+    cartPage.validatePriceItemCart(valueBurger, 1)
     cartPage.confirmOrder()
     paymentPage.validatePagePayment()
     paymentPage.choiceMoneyPay()
