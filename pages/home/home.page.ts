@@ -1,12 +1,16 @@
-const { I } = inject()
-
 import homeElements from "./home.elements";
+
+const { I } = inject()
 
 export class homePage {
 
+    massText ={
+        textStore: 'Lojas',
+    }
+
     validateLogin() {
         I.waitForElement(homeElements.btn_address, 5)
-        I.see('Lojas')
+        I.see(this.massText.textStore)
     }
 
     inputAddress() {

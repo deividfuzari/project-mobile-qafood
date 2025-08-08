@@ -1,7 +1,7 @@
 import paymentElements from "./payment.elements"
+import { expect } from 'chai';
 
 const { I } = inject()
-import { expect } from 'chai';
 
 export class paymentPage {
     massText = {

@@ -1,6 +1,6 @@
-const { I } = inject()
-
 import loginElements from "./login.elements"
+
+const { I } = inject()
 
 export class loginPage {
 

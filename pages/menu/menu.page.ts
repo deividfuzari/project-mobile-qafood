@@ -1,10 +1,15 @@
 import menuElements from "./menu.elements";
+
 const { I } = inject()
 
 export class menuPage {
+
+    massText = {
+        textMenu: 'Cardápio'
+    }
     validateGoMenu(index) {
         I.waitForElement({ xpath: menuElements.item_title(index) }, 5)
-        I.see('Cardápio')
+        I.see(this.massText.textMenu)
     }
 
     validateSelectItem(index, nameItem) {
