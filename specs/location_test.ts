@@ -16,12 +16,12 @@ Scenario('test input confirm address', () => {
     homePage.confirmDoneAddress()
 }).tag('@confirm_address')
 
-Scenario('test fail input address', () =>{
+Scenario('test fail input address', () => {
     homePage.selectRestaurant(restaurant)
     homePage.alertMessageAddress()
     homePage.closeAlert()
 }).tag('@fail_address')
-    
+
 Scenario('test input Address and select Restaurant', () => {
     homePage.inputAddress()
     homePage.selectRestaurant(restaurant)

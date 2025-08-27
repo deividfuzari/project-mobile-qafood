@@ -4,7 +4,7 @@ const { I } = inject()
 
 export class homePage {
 
-    massText ={
+    massText = {
         textStore: 'Lojas',
         textAddress: 'Av. Governador A. Konder, 20',
         textAlert: 'Ops... Selecione o endereço para continuar'

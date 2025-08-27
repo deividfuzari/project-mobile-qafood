@@ -6,7 +6,7 @@ export const homeElements = {
     field_search: '~search-field',
     field_done_address: '//android.widget.TextView[@text="Av. Governador A. Konder, 20"]',
     alert_message: '#android:id/message',
-    btn_close_alert : '#android:id/button1'
+    btn_close_alert: '#android:id/button1'
 }
 
 export default homeElements

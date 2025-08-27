@@ -1,7 +1,7 @@
 export const menuElements = {
     item_title: (index) => `(//android.widget.TextView[@content-desc="item-title"])[${index}]`,
     btn_add_item: '//*[@content-desc="add-item-buttom"]',
-    btn_add_item_locale : (index : any) => locate(`(//android.view.ViewGroup[@content-desc="add-item-buttom"])[${index}]`),
+    btn_add_item_locale: (index: any) => locate(`(//android.view.ViewGroup[@content-desc="add-item-buttom"])[${index}]`),
     item_price: (index) => `(//android.widget.TextView[@content-desc="item-price"])[${index}]`,
     btn_open_cart: '~open-cart-button',
     field_bag_empty: '//android.widget.TextView[@text="Você não possui produtos no carrinho!"]',

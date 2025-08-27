@@ -13,7 +13,7 @@ const valueDrink = '5,00'
 
 Feature('Tests QAfood Checkout')
 
-Before(()=> {
+Before(() => {
     loginPage.doLogin({})
     homePage.inputAddress()
     homePage.selectRestaurant(burgerJoint)

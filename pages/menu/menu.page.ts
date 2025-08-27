@@ -61,7 +61,7 @@ export class menuPage {
         I.performSwipe({ x: 600, y: 1500 }, { x: 600, y: 400 })
         I.waitForElement(menuElements.btn_add_item_locale(index), 10)
         I.click(menuElements.btn_add_item_locale(index))
-    } 
+    }
 
     removeItemBag() {
         I.waitForElement(menuElements.btn_remove_item, 10)
