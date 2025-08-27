@@ -6,6 +6,8 @@ export class homePage {
 
     massText ={
         textStore: 'Lojas',
+        textAddress: 'Av. Governador A. Konder, 20',
+        textAlert: 'Ops... Selecione o endereço para continuar'
     }
 
     validateLogin() {
@@ -18,6 +20,22 @@ export class homePage {
         I.click(homeElements.btn_address)
         I.waitForElement(homeElements.btn_permitir, 5)
         I.click(homeElements.btn_permitir)
+    }
+
+    confirmDoneAddress() {
+        I.waitForElement(homeElements.field_done_address, 10)
+        I.see(this.massText.textAddress, homeElements.field_done_address)
+    }
+
+    alertMessageAddress() {
+        I.waitForElement(homeElements.alert_message, 10)
+        I.see(this.massText.textAlert, homeElements.alert_message)
+    }
+
+    closeAlert() {
+        I.waitForElement(homeElements.btn_close_alert, 10)
+        I.seeElement(homeElements.btn_close_alert)
+        I.click(homeElements.btn_close_alert)
     }
 
     selectRestaurant(nameRestaurant) {
