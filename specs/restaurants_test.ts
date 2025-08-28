@@ -27,7 +27,7 @@ Scenario('test validate name Item and Add to cart', () => {
     cartPage.validatePriceItemCart(valueBurger, 1)
     cartPage.confirmOrder()
     paymentPage.validatePagePayment()
-}).tag('@add_item_to_cart')
+}).tag('@add_item_to_cart').tag('@restaurants')
 
 Scenario('Validate item bag and remove item', () => {
     homePage.selectRestaurant(steakhouse)
@@ -36,4 +36,4 @@ Scenario('Validate item bag and remove item', () => {
     menuPage.choiceNewItem(6)
     menuPage.clickGotoCart()
     menuPage.removeItemBag()
-}).tag('@remove_item')
+}).tag('@remove_item').tag('@restaurants')

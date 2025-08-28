@@ -4,17 +4,24 @@
   "description": "teste para funcionar o ts",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "spec-login": "npx codeceptjs run specs/login_test.ts --verbose",
+    "spec-checkout": "npx codeceptjs run specs/checkout_test.ts --verbose",
+    "spec-location": "npx codeceptjs run specs/location_test.ts --verbose",
+    "spec-restaurants": "npx codeceptjs run specs/restaurants_test.ts --verbose",
+    "all-specs": "npx codeceptjs run --verbose --reporter mochawesome"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "codeceptjs": "^3.7.3",
+    "mochawesome": "^7.1.3",
     "webdriverio": "^8.6.3"
   },
   "devDependencies": {
     "@types/node": "^24.1.0",
     "chai": "^4.3.7",
+    "mocha": "^11.7.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
   }
