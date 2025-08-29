@@ -14,16 +14,16 @@ Before(() => {
 Scenario('test input confirm address', () => {
     homePage.inputAddress()
     homePage.confirmDoneAddress()
-}).tag('@confirm_address').tag('@location')
+}).tag('@confirm_address')
 
 Scenario('test fail input address', () => {
     homePage.selectRestaurant(restaurant)
     homePage.alertMessageAddress()
     homePage.closeAlert()
-}).tag('@fail_address').tag('@location')
+}).tag('@fail_address')
 
 Scenario('test input Address and select Restaurant', () => {
     homePage.inputAddress()
     homePage.selectRestaurant(restaurant)
     menuPage.validateGoMenu(1)
-}).tag('@address_restaurant').tag('@location')
+}).tag('@address_restaurant')

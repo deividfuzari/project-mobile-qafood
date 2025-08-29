@@ -31,14 +31,14 @@ Scenario('finish purchase item on QAfood', async () => {
     paymentPage.choiceMoneyPay()
     await paymentPage.validateSuccsessOrder()
     I.wait(5)
-}).tag('@finish_order').tag('@checkout')
+}).tag('@finish_order')
 
 Scenario('validate fail cupom and ', () => {
     paymentPage.tryUseCupom({})
     paymentPage.validateErrorCupom()
-}).tag('@try_use_cupom').tag('@checkout')
+}).tag('@try_use_cupom')
 
 Scenario('validate try to buy without choosing a payment method', () => {
     paymentPage.tryBuyDirect()
     paymentPage.validatePagePayment()
-}).tag('@try_buy').tag('@checkout')
+}).tag('@try_buy')
