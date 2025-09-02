@@ -21,6 +21,7 @@
   "devDependencies": {
     "@types/node": "^24.1.0",
     "chai": "^4.3.7",
+    "dotenv": "^17.2.1",
     "mocha": "^11.7.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
