@@ -4,15 +4,12 @@ import path from 'path';
 
 dotenv.config({ path: path.resolve(__dirname, '.env') });
 
-// turn on headless mode when running with HEADLESS=true environment variable
-// export HEADLESS=true && npx codeceptjs run
 setHeadlessWhen(process.env.HEADLESS);
-
-// enable all common plugins https://github.com/codeceptjs/configure#setcommonplugins
 setCommonPlugins();
 
 const BROWSERSTACK_USERNAME = process.env.BROWSERSTACK_USERNAME;
 const BROWSERSTACK_ACCESS_KEY = process.env.BROWSERSTACK_ACCESS_KEY;
+const BROWSERSTACK_APP = process.env.BROWSERSTACK_APP;
 
 export const config: CodeceptJS.MainConfig = {
   tests: './specs/*_test.ts',
@@ -20,34 +17,35 @@ export const config: CodeceptJS.MainConfig = {
   helpers: {
     Appium: {
       appiumV2: true,
-      platform: 'android',
       host: 'hub-cloud.browserstack.com',
       port: 4444,
-      user: BROWSERSTACK_USERNAME, //foi criado variavel por isso passei sem process.env
-      key: BROWSERSTACK_ACCESS_KEY, //foi criado variavel por isso passei sem process.env
+      user: BROWSERSTACK_USERNAME,
+      key: BROWSERSTACK_ACCESS_KEY,
+
+      // ✅ estes dois devem ficar no topo
+      platform: 'android',
+      app: BROWSERSTACK_APP,
+
       desiredCapabilities: {
-        platformName: process.env.PLATFORM_NAME || '',
-        deviceName: process.env.DEVICE || '',
-        'appium:automationName': process.env.AUTOMATION_NAME || '',
+        deviceName: 'Samsung Galaxy S23 Ultra',
+        'appium:automationName': 'UIAutomator2',
+
         autoGrantPermissions: true,
         newCommandTimeout: 300000,
-        androidDeviceReadyTimeout: 300000,
-        androidInstallTimeout: 90000,
-        appWaitDuration: 300000,
-        gpsEnabled: true,
-        isHeadless: false,
-        noReset: false,
-        noSign: true,
+
+        // opções do BrowserStack
         'bstack:options': {
           appiumVersion: '2.0.1',
+          projectName: 'Projeto Qafood',
+          buildName: 'Build 01',
+          sessionName: 'Rodando no BrowserStack Qafood',
+          interactiveDebugging: true,
         },
-        browserstackLocal: false,
-        interactiveDebugging: true,
       },
     },
   },
   include: {
-    I: './steps_file'
+    I: './steps_file',
   },
-  name: 'teste-ts'
-}
+  name: 'teste-ts',
+};

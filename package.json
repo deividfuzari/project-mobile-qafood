@@ -9,7 +9,8 @@
     "spec-checkout": "npx codeceptjs run specs/checkout_test.ts --verbose",
     "spec-location": "npx codeceptjs run specs/location_test.ts --verbose",
     "spec-restaurants": "npx codeceptjs run specs/restaurants_test.ts --verbose",
-    "all-specs": "npx codeceptjs run --verbose --reporter mochawesome"
+    "all-specs": "npx codeceptjs run --verbose --reporter mochawesome",
+    "spec-finish-order-bs": "npx codeceptjs run -c codecept.conf.bs.ts --grep @finish_order --steps"
   },
   "author": "",
   "license": "ISC",
