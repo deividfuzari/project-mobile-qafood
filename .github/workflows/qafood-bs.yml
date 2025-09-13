@@ -30,4 +30,4 @@ jobs:
           BROWSERSTACK_ACCESS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
           BROWSERSTACK_APP: ${{ secrets.BROWSERSTACK_APP }}
         run: |
-          npx codeceptjs run -c codecept.conf.bs.ts ${{ github.event.inputs.spec }} --steps
+          npx --yes codeceptjs run -c codecept.conf.bs.ts ${{ github.event.inputs.spec }} --steps
