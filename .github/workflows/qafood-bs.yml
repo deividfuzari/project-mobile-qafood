@@ -1,7 +1,12 @@
-name: Run Login QAfood on BrowserStack
+name: Run Qafood on BrowserStack
 
 on:
   workflow_dispatch:
+    inputs:
+      spec:
+        description: 'Qual spec deseja rodar? (ex: specs/login_test.ts)'
+        required: true
+        default: 'specs/login_test.ts'
 
 jobs:
   test:
@@ -19,11 +24,10 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run Login Spec on BrowserStack
+      - name: Run CodeceptJS on BrowserStack
         env:
           BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
           BROWSERSTACK_ACCESS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
           BROWSERSTACK_APP: ${{ secrets.BROWSERSTACK_APP }}
         run: |
-          # Usando binário local do CodeceptJS para evitar problemas de permissão
-          ./node_modules/.bin/codeceptjs run -c codecept.conf.bs.ts specs/login_test.ts --steps
+          npx codeceptjs run -c codecept.conf.bs.ts ${{ github.event.inputs.spec }} --steps
